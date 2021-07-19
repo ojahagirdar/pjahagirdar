@@ -1,5 +1,5 @@
 
-user@DESKTOP-70SJIND MINGW64 ~
+user@DESKTOP-70SJIND MINGW64 ~1
 $ mkdir gitgithubtask1
 
 user@DESKTOP-70SJIND MINGW64 ~
