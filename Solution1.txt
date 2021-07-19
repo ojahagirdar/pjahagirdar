@@ -1,0 +1,402 @@
+
+user@DESKTOP-70SJIND MINGW64 ~
+$ mkdir gitgithubtask1
+
+user@DESKTOP-70SJIND MINGW64 ~
+$ cd gitgithubtask1
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1
+$ git init
+Initialized empty Git repository in C:/Users/user/gitgithubtask1/.git/
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (master)
+$ git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (master)
+$ notepad text1.txt
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (master)
+$ notepad text2.txt
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (master)
+$ notepad text3.txt
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (master)
+$ ls
+text1.txt  text2.txt  text3.txt
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        text1.txt
+        text2.txt
+        text3.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (master)
+$ create branch Dev
+bash: create: command not found
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (master)
+$ git branch Dev
+fatal: Not a valid object name: 'master'.
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (master)
+$ git branch
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (master)
+$ git branch Dev
+fatal: Not a valid object name: 'master'.
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (master)
+$ git checkout -c Dev
+error: unknown switch `c'
+usage: git checkout [<options>] <branch>
+   or: git checkout [<options>] [<branch>] -- <file>...
+
+    -b <branch>           create and checkout a new branch
+    -B <branch>           create/reset and checkout a branch
+    -l                    create reflog for new branch
+    --guess               second guess 'git checkout <no-such-branch>' (default)
+    --overlay             use overlay mode (default)
+    -q, --quiet           suppress progress reporting
+    --recurse-submodules[=<checkout>]
+                          control recursive updating of submodules
+    --progress            force progress reporting
+    -m, --merge           perform a 3-way merge with the new branch
+    --conflict <style>    conflict style (merge or diff3)
+    -d, --detach          detach HEAD at named commit
+    -t, --track           set upstream info for new branch
+    -f, --force           force checkout (throw away local modifications)
+    --orphan <new-branch>
+                          new unparented branch
+    --overwrite-ignore    update ignored files (default)
+    --ignore-other-worktrees
+                          do not check if another worktree is holding the given ref
+    -2, --ours            checkout our version for unmerged files
+    -3, --theirs          checkout their version for unmerged files
+    -p, --patch           select hunks interactively
+    --ignore-skip-worktree-bits
+                          do not limit pathspecs to sparse entries only
+    --pathspec-from-file <file>
+                          read pathspec from file
+    --pathspec-file-nul   with --pathspec-from-file, pathspec elements are separated with NUL character
+
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (master)
+$ git checkout -b Dev
+Switched to a new branch 'Dev'
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Dev)
+$ git switch master
+fatal: invalid reference: master
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Dev)
+$ git checkout master
+error: pathspec 'master' did not match any file(s) known to git
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Dev)
+$ git add text1.txt
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Dev)
+$ git status
+On branch Dev
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   text1.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        text2.txt
+        text3.txt
+
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Dev)
+$ git commit -m "text1 file added"
+[Dev (root-commit) 70434ef] text1 file added
+ 1 file changed, 1 insertion(+)
+ create mode 100644 text1.txt
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Dev)
+$ git checkout -b Test
+Switched to a new branch 'Test'
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Test)
+$ git status
+On branch Test
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        text2.txt
+        text3.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Test)
+$ git add *
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Test)
+$ git status
+On branch Test
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   text2.txt
+        new file:   text3.txt
+
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Test)
+$ git commit -m text2 text3 file added
+error: pathspec 'text3' did not match any file(s) known to git
+error: pathspec 'file' did not match any file(s) known to git
+error: pathspec 'added' did not match any file(s) known to git
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Test)
+$ git commit -m "text2 text3 file added"
+[Test c299e7d] text2 text3 file added
+ 2 files changed, 2 insertions(+)
+ create mode 100644 text2.txt
+ create mode 100644 text3.txt
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Test)
+$ git status
+On branch Test
+nothing to commit, working tree clean
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Test)
+$ ls
+text1.txt  text2.txt  text3.txt
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Test)
+$ notepad text1.txt
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Test)
+$ git diff
+diff --git a/text1.txt b/text1.txt
+index 80a0ae5..50871af 100644
+--- a/text1.txt
++++ b/text1.txt
+@@ -1 +1,2 @@
+-text1 file
+\ No newline at end of file
++text1 file
++ in text1 file changesh done
+\ No newline at end of file
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Test)
+$ git diff --staged
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Test)
+$ git log
+commit c299e7d9c98e812a19595ea1c28b9e5d8fe8fadc (HEAD -> Test)
+Author: mangeshdase <dasemangesh14@gmail.com>
+Date:   Sat Jul 17 21:49:35 2021 +0530
+
+    text2 text3 file added
+
+commit 70434ef73af923479362f7c905af21b4457cd550 (Dev)
+Author: mangeshdase <dasemangesh14@gmail.com>
+Date:   Sat Jul 17 21:48:24 2021 +0530
+
+    text1 file added
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Test)
+$ git status
+On branch Test
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   text1.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Test)
+$ git switch Div
+fatal: invalid reference: Div
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Test)
+$ git switch Dev
+Switched to branch 'Dev'
+M       text1.txt
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Dev)
+$ git status
+On branch Dev
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   text1.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Dev)
+$ git diff
+diff --git a/text1.txt b/text1.txt
+index 80a0ae5..50871af 100644
+--- a/text1.txt
++++ b/text1.txt
+@@ -1 +1,2 @@
+-text1 file
+\ No newline at end of file
++text1 file
++ in text1 file changesh done
+\ No newline at end of file
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Dev)
+$ git diff --staged
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Dev)
+$ git add text1.txt
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Dev)
+$ git diff
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Dev)
+$ git diff --staged
+diff --git a/text1.txt b/text1.txt
+index 80a0ae5..50871af 100644
+--- a/text1.txt
++++ b/text1.txt
+@@ -1 +1,2 @@
+-text1 file
+\ No newline at end of file
++text1 file
++ in text1 file changesh done
+\ No newline at end of file
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Dev)
+$ git diff Dev Test
+diff --git a/text2.txt b/text2.txt
+new file mode 100644
+index 0000000..70fa125
+--- /dev/null
++++ b/text2.txt
+@@ -0,0 +1 @@
++text2 file
+diff --git a/text3.txt b/text3.txt
+new file mode 100644
+index 0000000..f1fcb88
+--- /dev/null
++++ b/text3.txt
+@@ -0,0 +1 @@
++text3 file
+\ No newline at end of file
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Dev)
+$ git checkout
+M       text1.txt
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Dev)
+$ git merge Test
+Updating 70434ef..c299e7d
+Fast-forward
+ text2.txt | 1 +
+ text3.txt | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 100644 text2.txt
+ create mode 100644 text3.txt
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Dev)
+$ ls
+text1.txt  text2.txt  text3.txt
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Dev)
+$ git remote add origin https://github.com/mangeshdase/gitgihubtask1.git        
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Dev)
+$ git remote -v
+origin  https://github.com/mangeshdase/gitgihubtask1.git (fetch)
+origin  https://github.com/mangeshdase/gitgihubtask1.git (push)
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Dev)
+$ git push origin main
+error: src refspec main does not match any
+error: failed to push some refs to 'https://github.com/mangeshdase/gitgihubtask1.git'
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Dev)
+$ git push origin gitgihubtask1
+error: src refspec gitgihubtask1 does not match any
+error: failed to push some refs to 'https://github.com/mangeshdase/gitgihubtask1.git'
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Dev)
+$ git push origin gitgithubtask1
+error: src refspec gitgithubtask1 does not match any
+error: failed to push some refs to 'https://github.com/mangeshdase/gitgihubtask1.git'
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Dev)
+$ git push origin Dev
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (7/7), 523 bytes | 261.00 KiB/s, done.
+Total 7 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/mangeshdase/gitgihubtask1.git
+ * [new branch]      Dev -> Dev
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Dev)
+$ git status
+On branch Dev
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   text1.txt
+
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Dev)
+$ git commit -m "text1 file changed
+> "
+[Dev 009e755] text1 file changed
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Dev)
+$ ls
+text1.txt  text2.txt  text3.txt
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Dev)
+$ git status
+On branch Dev
+nothing to commit, working tree clean
+
+user@DESKTOP-70SJIND MINGW64 ~/gitgithubtask1 (Dev)
+$ cd ..
+
+user@DESKTOP-70SJIND MINGW64 ~
+$ mkdir clonerepo
+
+user@DESKTOP-70SJIND MINGW64 ~
+$ cd clonerepo
+
+user@DESKTOP-70SJIND MINGW64 ~/clonerepo
+$ git clone https://github.com/mangeshdase/gitgihubtask1.git
+Cloning into 'gitgihubtask1'...
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 7 (delta 0), reused 7 (delta 0), pack-reused 0
+Receiving objects: 100% (7/7), done.
+
+user@DESKTOP-70SJIND MINGW64 ~/clonerepo
+$ git status
+fatal: not a git repository (or any of the parent directories): .git
+
+user@DESKTOP-70SJIND MINGW64 ~/clonerepo
+$ ls
+gitgihubtask1/
+
+user@DESKTOP-70SJIND MINGW64 ~/clonerepo
+$ cd gitgihubtask1
+
+user@DESKTOP-70SJIND MINGW64 ~/clonerepo/gitgihubtask1 (Dev)
+$ notepad Solution.txt
+
