@@ -1,0 +1,39 @@
+1) i) mkdir omkarjahagirdar
+ii)git init
+iii) git status
+notepad omkar1.txt
+notepad omkar2.txt
+notepad omkar3.txt
+iv)ls
+
+2)i)git branch dev
+     ii)git branch test
+
+3)
+i)git checkout -B Dev
+    git init
+notepad omkar4.txt
+git add omkar4.txt
+git commit
+git checkout master
+
+4)git checkout -B Test
+git init
+notepad omkar5.txt
+notepad omkar6.txt
+git add .
+git commit
+
+5)
+ git mv omkar1.txt pjahagirdar
+git checkout master 
+git merge pjahagirdar
+git push -u origin master 
+
+
+6)
+
+
+git init
+git remote add origin https://github.com/ojahagirdar/pjahagirdar.git
+git push -u origin
